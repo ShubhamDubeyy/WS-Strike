@@ -1,0 +1,23 @@
+apply plugin: 'java'
+
+group = 'com.wsstrike'
+version = '1.0.0'
+
+sourceCompatibility = '17'
+targetCompatibility = '17'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compileOnly 'net.portswigger.burp.extensions:montoya-api:2023.12.1'
+}
+
+jar {
+    archiveBaseName = 'ws-strike'
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+    duplicatesStrategy = 'exclude'
+}

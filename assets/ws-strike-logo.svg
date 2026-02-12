@@ -1,0 +1,128 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="800" height="800">
+  <defs>
+    <radialGradient id="bgGlow" cx="50%" cy="50%" r="60%">
+      <stop offset="0%" stop-color="#1a2a1a"/>
+      <stop offset="100%" stop-color="#0d0d0d"/>
+    </radialGradient>
+    <linearGradient id="boltGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00e676"/>
+      <stop offset="50%" stop-color="#00c853"/>
+      <stop offset="100%" stop-color="#00a843"/>
+    </linearGradient>
+    <linearGradient id="ringGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00c853"/>
+      <stop offset="50%" stop-color="#00e676"/>
+      <stop offset="100%" stop-color="#00c853"/>
+    </linearGradient>
+    <filter id="greenGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="8" result="blur"/>
+      <feColorMatrix in="blur" type="matrix" values="0 0 0 0 0  0 0 0 0 0.8  0 0 0 0 0.33  0 0 0 0.6 0" result="greenBlur"/>
+      <feMerge><feMergeNode in="greenBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="outerGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="15" result="blur"/>
+      <feColorMatrix in="blur" type="matrix" values="0 0 0 0 0  0 0 0 0 0.78  0 0 0 0 0.33  0 0 0 0.35 0"/>
+    </filter>
+    <filter id="textGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="blur"/>
+      <feColorMatrix in="blur" type="matrix" values="0 0 0 0 0  0 0 0 0 0.8  0 0 0 0 0.33  0 0 0 0.6 0" result="greenBlur"/>
+      <feMerge><feMergeNode in="greenBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="800" rx="80" fill="url(#bgGlow)"/>
+
+  <!-- Grid -->
+  <g opacity="0.04" stroke="#00c853" stroke-width="0.5">
+    <line x1="0" y1="100" x2="800" y2="100"/><line x1="0" y1="200" x2="800" y2="200"/>
+    <line x1="0" y1="300" x2="800" y2="300"/><line x1="0" y1="400" x2="800" y2="400"/>
+    <line x1="0" y1="500" x2="800" y2="500"/><line x1="0" y1="600" x2="800" y2="600"/>
+    <line x1="0" y1="700" x2="800" y2="700"/>
+    <line x1="100" y1="0" x2="100" y2="800"/><line x1="200" y1="0" x2="200" y2="800"/>
+    <line x1="300" y1="0" x2="300" y2="800"/><line x1="400" y1="0" x2="400" y2="800"/>
+    <line x1="500" y1="0" x2="500" y2="800"/><line x1="600" y1="0" x2="600" y2="800"/>
+    <line x1="700" y1="0" x2="700" y2="800"/>
+  </g>
+
+  <!-- Corner accents -->
+  <path d="M30,80 L30,40 Q30,30 40,30 L80,30" fill="none" stroke="#00c853" stroke-width="1.5" opacity="0.15"/>
+  <path d="M720,30 L760,30 Q770,30 770,40 L770,80" fill="none" stroke="#00c853" stroke-width="1.5" opacity="0.15"/>
+  <path d="M30,720 L30,760 Q30,770 40,770 L80,770" fill="none" stroke="#00c853" stroke-width="1.5" opacity="0.15"/>
+  <path d="M720,770 L760,770 Q770,770 770,760 L770,720" fill="none" stroke="#00c853" stroke-width="1.5" opacity="0.15"/>
+
+  <!-- Outer glow ring -->
+  <circle cx="400" cy="300" r="195" fill="none" stroke="#00c853" stroke-width="3" filter="url(#outerGlow)"/>
+  <!-- Main ring -->
+  <circle cx="400" cy="300" r="195" fill="none" stroke="url(#ringGrad)" stroke-width="3" opacity="0.8"/>
+  <!-- Inner circle -->
+  <circle cx="400" cy="300" r="186" fill="#111111" opacity="0.9"/>
+
+  <!-- WebSocket waves left -->
+  <g opacity="0.25" stroke="#00c853" stroke-width="2" fill="none">
+    <path d="M210,265 Q238,248 265,265 Q292,282 320,265"/>
+    <path d="M205,300 Q235,278 265,300 Q295,322 325,300"/>
+    <path d="M210,335 Q238,352 265,335 Q292,318 320,335"/>
+  </g>
+  <!-- WebSocket waves right -->
+  <g opacity="0.25" stroke="#00c853" stroke-width="2" fill="none">
+    <path d="M480,265 Q508,248 535,265 Q562,282 590,265"/>
+    <path d="M475,300 Q505,278 535,300 Q565,322 595,300"/>
+    <path d="M480,335 Q508,352 535,335 Q562,318 590,335"/>
+  </g>
+  <!-- Connection dots -->
+  <circle cx="200" cy="300" r="5" fill="#00c853" opacity="0.5"/>
+  <circle cx="600" cy="300" r="5" fill="#00c853" opacity="0.5"/>
+
+  <!-- Lightning bolt -->
+  <g filter="url(#greenGlow)">
+    <polygon points="416,150 358,295 393,295 372,455 448,280 412,280 436,150" fill="url(#boltGrad)"/>
+  </g>
+  <polygon points="420,165 365,290 396,290 377,440 443,285 414,285 434,165" fill="#00e676" opacity="0.15"/>
+
+  <!-- Accent dots on ring -->
+  <circle cx="400" cy="103" r="4" fill="#00c853" opacity="0.6"/>
+  <circle cx="525" cy="128" r="3" fill="#00c853" opacity="0.4"/>
+  <circle cx="595" cy="210" r="3" fill="#00c853" opacity="0.4"/>
+  <circle cx="595" cy="390" r="3" fill="#00c853" opacity="0.4"/>
+  <circle cx="525" cy="472" r="3" fill="#00c853" opacity="0.4"/>
+  <circle cx="275" cy="128" r="3" fill="#00c853" opacity="0.4"/>
+  <circle cx="205" cy="210" r="3" fill="#00c853" opacity="0.4"/>
+  <circle cx="205" cy="390" r="3" fill="#00c853" opacity="0.4"/>
+  <circle cx="275" cy="472" r="3" fill="#00c853" opacity="0.4"/>
+
+  <!-- WS-STRIKE text as proper SVG paths for reliable rendering -->
+  <!-- "WS" in green -->
+  <g filter="url(#textGlow)">
+    <!-- W -->
+    <path d="M265,570 L285,570 L305,620 L325,570 L345,570 L365,620 L385,570 L405,570 L375,645 L355,645 L335,595 L315,645 L295,645 Z" fill="#00c853"/>
+    <!-- S -->
+    <path d="M425,570 L505,570 L505,590 L445,590 L445,600 L505,600 L505,645 L425,645 L425,625 L485,625 L485,615 L425,615 Z" fill="#00c853"/>
+  </g>
+
+  <!-- Separator line -->
+  <line x1="280" y1="660" x2="520" y2="660" stroke="#00c853" stroke-width="2" opacity="0.3"/>
+
+  <!-- "STRIKE" in light gray -->
+  <g fill="#cccccc">
+    <!-- S -->
+    <path d="M195,678 L245,678 L245,692 L210,692 L210,698 L245,698 L245,730 L195,730 L195,716 L230,716 L230,710 L195,710 Z"/>
+    <!-- T -->
+    <path d="M255,678 L305,678 L305,692 L288,692 L288,730 L272,730 L272,692 L255,692 Z"/>
+    <!-- R -->
+    <path d="M315,678 L360,678 L360,700 L345,700 L360,730 L343,730 L328,700 L330,700 L330,692 L345,692 L345,692 L330,692 L330,730 L315,730 Z"/>
+    <!-- I -->
+    <path d="M370,678 L385,678 L385,730 L370,730 Z"/>
+    <!-- K -->
+    <path d="M395,678 L410,678 L410,698 L430,678 L450,678 L425,703 L450,730 L430,730 L410,708 L410,730 L395,730 Z"/>
+    <!-- E -->
+    <path d="M460,678 L510,678 L510,692 L475,692 L475,698 L505,698 L505,710 L475,710 L475,716 L510,716 L510,730 L460,730 Z"/>
+  </g>
+
+  <!-- Version badge -->
+  <rect x="348" y="745" width="104" height="24" rx="12" fill="#1e1e1e" stroke="#00c853" stroke-width="1" opacity="0.6"/>
+  <g fill="#00c853" opacity="0.7">
+    <!-- v1.0.0 text as small shapes -->
+    <text x="400" y="762" text-anchor="middle" font-family="monospace" font-size="12">v1.0.0</text>
+  </g>
+</svg>
