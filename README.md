@@ -253,6 +253,13 @@ c[code,"reason"]   -> Close
 <details>
 <summary><b>CSWSH Testing</b></summary>
 <img src="assets/cswsh.png" alt="CSWSH Panel">
+  <img src="assets/cswsh-result.png" alt="CSWSH Result">
+</details>
+
+<details>
+<summary><b>QuickTest Panel</b></summary>
+<img src="assets/enumeration.png" alt="Enumeration Panel">
+  <img src="assets/endpoint.png" alt="Enumeration Panel">
 </details>
 
 ## Security Testing
